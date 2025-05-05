@@ -27,15 +27,15 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run pull image
-        run: docker pull mysql:8.4.5
+        run: docker pull redis:7.4.3
 
       # Runs a set of commands using the runners shell
       - name: Run modify image path
         run: |
           docker login --username="${{ secrets.ALIYUN_USERNAME }}" --password="${{ secrets.ALIYUN_PASSWORD }}" registry.cn-beijing.aliyuncs.com
-          docker tag mysql:8.4.5 registry.cn-beijing.aliyuncs.com/mirschao/temp:8.4.5
+          docker tag redis:7.4.3 registry.cn-beijing.aliyuncs.com/mirschao/temp:7.4.3
 
       # Runs a set of commands using the runners shell
       - name: Run push image
         run: |
-          docker push registry.cn-beijing.aliyuncs.com/mirschao/temp:8.4.5
+          docker push registry.cn-beijing.aliyuncs.com/mirschao/temp:7.4.3
